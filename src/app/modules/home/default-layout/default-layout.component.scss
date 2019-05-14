@@ -1,0 +1,72 @@
+@import "~styles/variables";
+@import "~styles/media";
+@import "~styles/mixins";
+
+.wrapper {
+  position: relative;
+  display: flex;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.main-nav {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  font-weight: bold;
+
+  @include bp-min($mq-desktop-min) {
+    top: 30px;
+  }
+}
+
+.filters {
+  width: 280px;
+  padding-bottom: 30px;
+  background-image: $filters_bg;
+  color: $white_clr;
+
+  &__toggler {
+    position: absolute;
+    right: -40px;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    color: $accent_green;
+    background-color: $filters_bg-color;
+    border: none;
+  }
+
+  @include bp-min($mq-desktop-min) {
+    position: relative;
+    width: 340px;
+
+    &__toggler {
+      display: none;
+    }
+  }
+
+  @include bp-max($mq-tablet-max) {
+    position: absolute;
+    left: -280px;
+    top: 0;
+    transition: left .4s ease;
+  }
+}
+
+.content {
+  padding: 20px;
+  @include bp-min($mq-desktop-min) {
+    width: calc(100% - 340px);
+    padding: 30px;
+  }
+}
+
+/deep/ .filters-expanded .filters {
+  left: 0;
+}
+
+
+@include bp-min($mq-desktop-min) {
+
+}

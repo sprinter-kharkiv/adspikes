@@ -1,0 +1,52 @@
+@import "/variables";
+@import "/media";
+@import "/mixins";
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  //overflow-y: scroll;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: $body_bg;
+  color: $text_clr;
+  font-family: 'Montserrat', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: none;
+}
+
+.grid-content {
+
+  @include breakpoint-range ($mq-mobile-medium, $mq-tablet-small-max) {
+    &__item {
+      flex-basis: 48%;
+      margin: 0 1% 25px;
+    }
+  }
+  @include breakpoint-range ($mq-tablet-small, $mq-tablet-max) {
+    &__item {
+      flex-basis: 31.33%;
+      margin: 0 1% 25px;
+    }
+  }
+  @include bp-min ($mq-desktop-min) {
+    &__item {
+      flex-basis: 23%;
+      margin: 0 1% 25px;
+    }
+  }
+}

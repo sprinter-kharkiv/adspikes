@@ -1,0 +1,74 @@
+@import "~styles/variables";
+
+.main-nav {
+  > * {
+    display: inline-block;
+    margin-left: 20px;
+  }
+
+  &__link {
+    display: block;
+    padding: 5px;
+    color: $gray_icons;
+    transition: color .3s ease;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      color: $purpley-blue;
+    }
+
+    svg {
+      cursor: pointer;
+    }
+  }
+}
+
+.sub-nav {
+  position: relative;
+  width: 150px;
+  padding: 14px 0;
+  border-radius: 8px;
+  box-shadow: 0 3px 11px -6px rgba(0, 0, 0, 0.25);
+  background-color: $white_clr;
+  opacity: 0;
+  visibility: hidden;
+  top: 0;
+  right: 5px;
+  transition: opacity .2s, top .3s;
+  z-index: 15;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+    top: 5px;
+  }
+
+  &__link {
+    display: block;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.2;
+    color: $gray_icons;
+    background-color: transparent;
+    text-decoration: none;
+    transition: color .4s, background-color .4s;
+
+    &:hover,
+    &:focus {
+      color: $gray_dark;
+      background-color: $gray_light_2;
+    }
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: transparent;
+  z-index: 10;
+}

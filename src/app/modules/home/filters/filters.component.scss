@@ -1,0 +1,31 @@
+@import "~styles/variables";
+@import "~styles/media";
+@import "~styles/mixins";
+
+.logo {
+  display: block;
+  width: 75%;
+  &__img {
+    max-width: 100%;
+  }
+}
+
+.filter-group {
+  padding: 20px 20px 0;
+
+  &__title {
+    font-size: 20px;
+    line-height: 1.2;
+    font-weight: 600;
+  }
+
+  &__subtitle {
+    color: $gray_light;
+    font-size: 15px;
+    letter-spacing: -0.2px;
+    line-height: 1.2;
+  }
+  @include bp-min($mq-desktop-min) {
+    padding: 25px 40px 0;
+  }
+}
