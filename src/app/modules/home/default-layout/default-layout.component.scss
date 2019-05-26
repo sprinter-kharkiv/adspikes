@@ -6,11 +6,12 @@
   position: relative;
   display: flex;
   min-height: 100%;
-  overflow: hidden;
+  min-width: 320px;
+  //overflow: hidden;
 }
 
 .main-nav {
-  position: fixed;
+  position: absolute;
   top: 15px;
   right: 15px;
   font-weight: bold;
@@ -21,7 +22,7 @@
 }
 
 .filters {
-  width: 280px;
+  width: 320px;
   padding-bottom: 30px;
   background-image: $filters_bg;
   color: $white_clr;
@@ -48,13 +49,15 @@
 
   @include bp-max($mq-tablet-max) {
     position: absolute;
-    left: -280px;
+    left: -320px;
     top: 0;
     transition: left .4s ease;
+    z-index: 20;
   }
 }
 
 .content {
+  width: 100%;
   padding: 20px;
   @include bp-min($mq-desktop-min) {
     width: calc(100% - 340px);

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DefaultLayoutComponent } from "./default-layout/default-layout.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
+import { DetailComponent } from "./detail/detail.component";
 
 const routes: Routes = [
   {
@@ -14,6 +15,10 @@ const routes: Routes = [
         // loadChildren: './places/places.module#PlacesModule',
         // data: { preload: false },
       },
+      {
+        path: 'detail',
+        component: DetailComponent,
+      }
     ]
   }
 ];

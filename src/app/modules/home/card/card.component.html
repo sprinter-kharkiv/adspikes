@@ -1,0 +1,62 @@
+<div class="block-w card">
+    <header class="card__header card-header">
+        <div class="card-header__left">
+            <a class="card-header__logo" href="#">
+                <img src="{{ item.itemLogo }}" alt="">
+            </a>
+            <!--<button class="btn btn&#45;&#45;s">Right column</button>-->
+        </div>
+        <h2 class="card-header__title card-header__title--sibling-logo">
+            {{ item.title }}
+        </h2>
+        <div class="card-header__favorites">
+            <svg width="19px" height="19px">
+                <use xlink:href="#heart"></use>
+            </svg>
+        </div>
+    </header>
+    <div class="card__content">
+        <p class="card__text-block">
+            {{ (item.text.length > 170) ? (item.text | slice:0:170) : (item.text) }}
+            <span *ngIf="item.text.length > 170">
+                 ... <span class="link-simple no-wrap">See More</span>
+            </span>
+        </p>
+        <div class="promo">
+            <img class="promo__img" src="{{ item.promoImg }}" alt="{{ item.imgDescription }}">
+            <a href="#" class="promo__link">{{ item.promoLink }}</a>
+            <div class="clearfix">
+                <div class="promo__title">
+                    {{ item.promoText }}
+                </div>
+                <button class="promo__btn btn btn--m">
+                    Learn more
+                </button>
+            </div>
+        </div>
+    </div>
+    <footer class="card__footer">
+        <ul class="media-statistick">
+           <li>
+               <svg class="media-statistick__icon" width="20px" height="20px" style="margin-top: -3px">
+                   <use xlink:href="#like"></use>
+               </svg>
+               <span class="media-statistick__number">{{ item.media.likes }}</span>
+           </li>
+           <li>
+               <svg class="media-statistick__icon" width="16px" height="16px">
+                   <use xlink:href="#arrow-right"></use>
+               </svg>
+               <span class="media-statistick__number">{{ item.media.shared }}</span>
+           </li>
+           <li>
+               <svg class="media-statistick__icon" width="16px" height="16px">
+                   <use xlink:href="#bubble"></use>
+               </svg>
+               <span class="media-statistick__number">{{ item.media.comments }}</span>
+           </li>
+        </ul>
+        <button class="btn btn--s footer-btn">News Feed</button>
+    </footer>
+
+</div>

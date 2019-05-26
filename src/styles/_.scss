@@ -1,3 +1,4 @@
+@import "/avenirNext";
 @import "/variables";
 @import "/media";
 @import "/mixins";
@@ -22,31 +23,336 @@ body {
   min-height: 100vh;
   background-color: $body_bg;
   color: $text_clr;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Avenir Next LT Pro Regular', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: none;
 }
 
-.grid-content {
+.block-w {
+  border-radius: 8px;
+  box-shadow: 0 3px 11px -6px rgba(0, 0, 0, 0.25);
+  background-color: $white_clr;
 
-  @include breakpoint-range ($mq-mobile-medium, $mq-tablet-small-max) {
+}
+
+.select .form-group.mat-form-field {
+  font-size: 15px;
+
+  .mat-form-field-wrapper {
+    padding-bottom: 0;
+    margin: 0;
+  }
+  .mat-form-field-infix {
+    width: 100%;
+    padding: .76em 0;
+    border-top: 0.35em solid transparent;
+  }
+
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.no-wrap {
+  white-space: nowrap;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  &__item {
+
+  }
+
+  @include bp-max ($mq-mobile-max) {
+    &__item {
+      margin: 0 1% 4%;
+    }
+
+    &__item-double {
+      flex-basis: 100%;
+      width: 100%;
+      max-width: 100%;
+      flex-grow: 1;
+      margin: 0 1% 4%;
+    }
+
+    &__item-half {
+      flex-basis: 100%;
+      width: 100%;
+      max-width: 100%;
+      margin: 0 1% 4%;
+    }
+  }
+
+  @include bp-min ($mq-tablet-min) {
+    &__item-half {
+      flex-basis: 48%;
+      width: 48%;
+      max-width: 48%;
+      margin: 0 1% 3%;
+    }
+  }
+
+  @include breakpoint-range ($mq-tablet-min, $mq-tablet-medium - 1px) {
     &__item {
       flex-basis: 48%;
-      margin: 0 1% 25px;
+      width: 48%;
+      max-width: 48%;
+      margin: 0 1% 3%;
+    }
+
+    &__item-double {
+      flex-basis: 48%;
+      width: 48%;
+      max-width: 48%;
+      margin: 0 1% 3%;
     }
   }
-  @include breakpoint-range ($mq-tablet-small, $mq-tablet-max) {
+  @include breakpoint-range ($mq-tablet-medium, $mq-tablet-max) {
     &__item {
-      flex-basis: 31.33%;
-      margin: 0 1% 25px;
+      flex-basis: 31.97%;
+      width: 31.97%;
+      max-width: 31.97%;
+      margin: 0 0.68% 1.3%;
+    }
+    &__item-double {
+      flex-basis: 65.3%;
+      width: 65.3%;
+      max-width: 65.3%;
+      margin: 0 0.68% 1.3%;
     }
   }
-  @include bp-min ($mq-desktop-min) {
+  @include breakpoint-range ($mq-desktop-min, $mq-desktop-medium - 1px) {
     &__item {
-      flex-basis: 23%;
-      margin: 0 1% 25px;
+      flex-basis: 48%;
+      width: 48%;
+      max-width: 48%;
+      margin: 0 1% 3%;
     }
+
+    &__item-double {
+      flex-basis: 48%;
+      width: 48%;
+      max-width: 48%;
+      margin: 0 1% 3%;
+    }
+  }
+  @include bp-min ($mq-desktop-medium) {
+    &__item {
+      flex-basis: 31.97%;
+      width: 31.97%;
+      max-width: 31.97%;
+      margin: 0 0.68% 1.3%;
+    }
+    &__item-double {
+      flex-basis: 65.3%;
+      width: 65.3%;
+      max-width: 65.3%;
+      margin: 0 0.68% 1.3%;
+    }
+  }
+}
+
+.btn {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+  background-color: transparent;
+  transition: border-color .3s;
+
+  &:hover {
+    border-color: $accent_green;
+  }
+
+  &--s {
+    padding: 0.58em 0.8em;
+    border-radius: 4px;
+    border: solid 2px $gray_light_2;
+    color: $accent_blue;
+  }
+
+  &--m {
+    padding: 1em 1.2em;
+    border-radius: 8px;
+    border: solid 1px $gray_light;
+    color: $text_clr;
+    text-transform: uppercase;
+  }
+}
+
+.btn-solid {
+  display: flex;
+  align-items: center;
+  padding: .87em 1em;
+  font-size: 15px;
+  font-weight: 600;
+  background-color: $accent_green;
+  border: none;
+  box-shadow: none;
+  border-radius: 4px;
+  color: $white_clr;
+  letter-spacing: .02em;
+  transition: box-shadow .3s;
+
+  &__icon {
+    margin-right: 4px;
+    color: inherit;
+    opacity: .7;
+  }
+
+  &:hover {
+    box-shadow: 0 3px 11px -6px rgba(0, 0, 0, 0.45);
+  }
+  &:active {
+    box-shadow: 0 2px 9px -7px rgba(0, 0, 0, 0.25);
+  }
+}
+
+.link-simple {
+  position: relative;
+  color: $accent_blue;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background-color: currentColor;
+    transform: scale(0);
+    transition: transform .3s;
+  }
+  &:hover:after {
+    transform: scale(1);
+  }
+}
+
+.main-title {
+  margin: .8em 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: #29253a;
+}
+
+.toast-message {
+  font-variant: normal;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.toast-container .toast-success {
+  background-color: $accent_green;
+}
+
+.chart {
+  &__title {
+    margin: 25px 0;
+    font-size: 18px;
+    font-weight: 600;
+  }
+}
+
+
+.mat-form-field.mat-form-field-appearance-outline {
+  width: 100%;
+  .mat-form-field-wrapper {
+    padding-bottom: 10px;
+  }
+
+  .mat-form-field-infix {
+    width: 100%;
+    padding: 11px 0;
+    border-top: 5px solid transparent;
+  }
+
+  .mat-form-field-label {
+    font-size: 15px;
+    line-height: 1;
+    color: $gray_light;
+  }
+
+  .mat-select-value {
+    color: $white_clr;
+  }
+
+  .mat-select-arrow-wrapper {
+    transform: translateY(-14%);
+  }
+
+  .mat-select-arrow {
+    width: 8px;
+    height: 8px;
+    border: 2px solid $gray_light;
+    border-bottom: none;
+    border-right: none;
+    transform: rotateZ(-135deg);
+    transition: border-color .3s cubic-bezier(.25,.8,.25,1);
+  }
+
+  .mat-form-field-outline-start,
+  .mat-form-field-outline-end,
+  .mat-form-field-outline-gap {
+    border-width: 2px;
+  }
+
+  .mat-form-field-outline {
+    color: $gray_dark;
+  }
+
+  &.mat-form-field-can-float.mat-form-field-should-float {
+    .mat-form-field-label {
+      transform: translateY(-18px) scale(0.75);
+      color: $accent_green-light;
+    }
+
+    .mat-form-field-outline {
+      color: $accent_green-light;
+    }
+  }
+
+  &.mat-form-field-can-float.mat-focused {
+    .mat-form-field-outline-thick,
+    .mat-form-field-label {
+      color: $violet;
+    }
+
+    .mat-select-arrow {
+      border-color: $violet;
+    }
+  }
+}
+
+
+.mat-form-field-flex:hover {
+  .mat-form-field-outline-thick {
+    color: $violet;
+  }
+
+  .mat-select-arrow {
+    border-color: $violet;
+  }
+}
+
+.select {
+  .mat-form-field.mat-form-field-appearance-outline {
+
+    .mat-select-value {
+      color: $gray_dark;
+    }
+
+    .mat-form-field-outline {
+      color: $gray_light;
+    }
+
   }
 }

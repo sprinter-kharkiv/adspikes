@@ -1,7 +1,8 @@
-<p>
-  dashboard works!
-  <svg width="16px" height="16px">
-    <use xlink:href="#like"></use>
-  </svg>
-
-</p>
+<section>
+  <h1 class="main-title">{{ pageTitle }}</h1>
+  <div class="grid">
+    <div *ngFor="let item of items" class="grid__item">
+      <app-card [item]="item"></app-card>
+    </div>
+  </div>
+</section>

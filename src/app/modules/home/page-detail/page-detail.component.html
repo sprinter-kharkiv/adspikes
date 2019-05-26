@@ -1,0 +1,78 @@
+
+
+<div class="block-w detail">
+  <h2 class="detail__title">{{ blockTitle }} <span class="detail__title-count">({{ pagesCount }})</span></h2>
+  <div class="clearfix">
+    <div class="detail__nav">
+      <ul class="tabs">
+        <li><button class="tabs__btn" [ngClass]="{'active': activeTab == 'basic'}" (click)="toggleTab('basic')">Basic info</button></li>
+        <li><button class="tabs__btn" [ngClass]="{'active': activeTab == 'redirects'}" (click)="toggleTab('redirects')">Redirects</button></li>
+        <li><button class="tabs__btn" [ngClass]="{'active': activeTab == 'outgoing'}" (click)="toggleTab('outgoing')">Outgoing URLs</button></li>
+      </ul>
+      <div class="select">
+        <mat-form-field class="form-group" appearance="outline">
+          <mat-label>Sort by</mat-label>
+          <mat-select class="form-group__input">
+            <mat-option *ngFor="let option of sortOption; let i = index;" value="{{ i + 1 }}">{{ option }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="detail__preview" [ngStyle]="{'background-image': 'url(../' + activePage.previewImg + ')' }"></div>
+    <div class="detail__data">
+      <div class="tabs__content" *ngIf="activeTab == 'basic'">
+        <div class="clipboard" (click)="copyToClipboard( activePage.url )">
+          <label class="clipboard__label">url</label>
+          <input class="clipboard__input" type="text" readonly value="{{ activePage.url }}">
+          <svg class="clipboard__icon" width="20px" height="20px">
+            <use xlink:href="#copy"></use>
+          </svg>
+        </div>
+
+
+        <dl class="description-list">
+          <dt>Hits:</dt>
+          <dd>{{ activePage.hits }}</dd>
+          <dt>Days running:</dt>
+          <dd>{{ activePage.daysRunning }}</dd>
+          <dt>First seen:</dt>
+          <dd>{{ activePage.firstSeen }}</dd>
+          <dt>Last seen:</dt>
+          <dd>{{ activePage.lastSeen }}</dd>
+        </dl>
+
+        <button class="btn-solid btn-solid--icon-left">
+          <svg class="btn-solid__icon" width="24px" height="22px">
+            <use xlink:href="#download"></use>
+          </svg>
+          <span>Download</span>
+        </button>
+      </div>
+      <div class="tabs__content" *ngIf="activeTab == 'redirects'">
+        activeTab == 'redirects'
+      </div>
+      <div class="tabs__content" *ngIf="activeTab == 'outgoing'">
+        activeTab == 'outgoing'
+      </div>
+    </div>
+  </div>
+  <div class="detail__slider">
+    <div class="swiper-container " [swiper]="config" [(index)]="swiperIndex">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <div *ngFor="let page of availablePages" class="swiper-slide">
+          <a href="javascript: void(0);"
+             class="slider-link"
+             [ngStyle]="{'background-image': 'url(../' + page.pagePreview + ')' }"></a>
+        </div>
+      </div>
+
+      <!-- If we need scrollbar -->
+      <div class="swiper-scrollbar"></div>
+    </div>
+    <!-- Add Arrows -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+
+</div>

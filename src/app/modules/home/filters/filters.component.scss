@@ -14,12 +14,14 @@
   padding: 20px 20px 0;
 
   &__title {
+    margin-bottom: 15px;
     font-size: 20px;
     line-height: 1.2;
-    font-weight: 600;
+    font-weight: 400;
   }
 
   &__subtitle {
+    margin-bottom: 10px;
     color: $gray_light;
     font-size: 15px;
     letter-spacing: -0.2px;
@@ -29,3 +31,4 @@
     padding: 25px 40px 0;
   }
 }
+

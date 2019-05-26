@@ -1,0 +1,69 @@
+<section>
+  <h1 class="main-title">{{ pageTitle }}</h1>
+  <div class="grid">
+    <div class="grid__item">
+      <app-card [item]="item"></app-card>
+    </div>
+    <div class="grid__item-double">
+      <app-page-detail [activePage]="activePage" [pagesCount]="landingPages.length"></app-page-detail>
+    </div>
+    <div class="grid__item-half">
+
+      <div class="chart">
+        <h2 class="chart__title">Social engagement</h2>
+        <canvas baseChart
+                [datasets]="socialEngagementChartData"
+                [labels]="socialEngagementChartLabels"
+                [options]="socialEngagementChartOptions"
+                [colors]="socialEngagementChartColors"
+                [legend]="socialEngagementChartLegend"
+                [chartType]="socialEngagementChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+      </div>
+    </div>
+    <div class="grid__item-half">
+      <div class="chart">
+        <h2 class="chart__title">Ad reach</h2>
+        <canvas baseChart
+                [datasets]="adReachChartData"
+                [labels]="adReachChartLabels"
+                [options]="adReachChartOptions"
+                [colors]="adReachChartColors"
+                [legend]="adReachChartLegend"
+                [chartType]="adReachChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+      </div>
+    </div>
+    <div class="grid__item-half">
+      <div class="chart">
+        <h2 class="chart__title">Week Trend</h2>
+        <canvas baseChart
+                [datasets]="weekTrendChartData"
+                [labels]="weekTrendChartLabels"
+                [options]="weekTrendChartOptions"
+                [colors]="weekTrendChartColors"
+                [legend]="weekTrendChartLegend"
+                [chartType]="weekTrendChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+      </div>
+    </div>
+    <div class="grid__item-half">
+      <div class="chart">
+        <h2 class="chart__title">Week Trend</h2>
+        <canvas baseChart
+                [datasets]="countryChartData"
+                [labels]="countryChartLabels"
+                [options]="countryChartOptions"
+                [plugins]="countryChartPlugins"
+                [colors]="countryChartColors"
+                [legend]="countryChartLegend"
+                [chartType]="countryChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+      </div>
+    </div>
+  </div>
+</section>
