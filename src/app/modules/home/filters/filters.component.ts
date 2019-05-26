@@ -108,4 +108,8 @@ export class FiltersComponent implements OnInit {
     });
   }
 
+  onSubmit():void {
+    console.log('DATA', this.form)
+  }
+
 }
